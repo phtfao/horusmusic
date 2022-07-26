@@ -11,12 +11,13 @@ class Triangule implements Contracts\ShapeInterface
     public function getArea()
     {
         $p = ($this->a + $this->b + $this->c) / 2;
-        return sqrt($p * ($p - $this->a) * ($p - $this->b) * ($p - $this->c));
+        $area = sqrt($p * ($p - $this->a) * ($p - $this->b) * ($p - $this->c));
+        return round($area, 2);
     }
 
     public function getPerimeter()
     {
-        return $this->a + $this->b + $this->c;
+        return round(($this->a + $this->b + $this->c), 2);
     }
 
     public function getInfo()
@@ -26,8 +27,8 @@ class Triangule implements Contracts\ShapeInterface
             'a' => $this->a,
             'b' => $this->b,
             'c' => $this->c,
-            'surface' => $this->getArea(),
-            'circumference' => $this->getPerimeter(),
+            'surface' => round($this->getArea(), 2),
+            'perimeter' => round($this->getPerimeter(), 2),
         ];
     }
 }

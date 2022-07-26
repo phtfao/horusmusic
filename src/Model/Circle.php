@@ -11,12 +11,12 @@ class Circle implements Contracts\ShapeInterface
 
     public function getArea()
     {
-        return pi() * pow($this->radius, 2);
+        return round(pi() * pow($this->radius, 2), 2);
     }
 
     public function getPerimeter()
     {
-        return 2 * pi() * $this->radius;
+        return round(2 * pi() * $this->radius, 2);
     }
 
     public function getInfo()
