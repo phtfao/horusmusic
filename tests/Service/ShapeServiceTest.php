@@ -69,4 +69,46 @@ class ShapeServiceTest extends TestCase
         ];
         $this->assertEquals($arrExpectedTrianguleInfo, $shapeService->getInfo());
     }
+
+    public function testSumOfAreaOfCircle3AndCircle4MustBe78Dot54(): void
+    {
+        $circle1 = new Circle(3);
+        $circle2 = new Circle(4);        
+        $this->assertEquals(78.54, ShapeService::getSumOfAreas($circle1, $circle2));
+    }
+
+    public function testSumOfPerimeterOfCircle3AndCircle4MustBe13Dot98(): void
+    {
+        $circle1 = new Circle(3);
+        $circle2 = new Circle(4);
+        $this->assertEquals(43.98, ShapeService::getSumOfPerimeters($circle1, $circle2));
+    }
+
+    function testSumOfAreaOfTwoTriangulesOfSides3And4And5And6And7And8MustBe26Dot33(): void
+    {
+        $triangule1 = new Triangule(3, 4, 5);
+        $triangule2 = new Triangule(6, 7, 8);
+        $this->assertEquals(26.33, ShapeService::getSumOfAreas($triangule1, $triangule2));
+    }
+
+    function testSumOfPerimeterOfTwoTriangulesOfSides3And4And5And6And7And8MustBe33(): void
+    {
+        $triangule1 = new Triangule(3, 4, 5);
+        $triangule2 = new Triangule(6, 7, 8);
+        $this->assertEquals(33, ShapeService::getSumOfPerimeters($triangule1, $triangule2));
+    }
+
+    function testSumOfAreaOfCircle3AndTrianguleOfSides3And4And5MustBe34Dot27(): void
+    {
+        $circle = new Circle(3);
+        $triangule = new Triangule(3, 4, 5);
+        $this->assertEquals(34.27, ShapeService::getSumOfAreas($circle, $triangule));
+    }
+
+    function testSumOfPerimeterOfCircle3AndTrianguleOfSides3And4And5MustBe30Dot85(): void
+    {
+        $circle = new Circle(3);
+        $triangule = new Triangule(3, 4, 5);
+        $this->assertEquals(30.85, ShapeService::getSumOfPerimeters($circle, $triangule));
+    }
 }
