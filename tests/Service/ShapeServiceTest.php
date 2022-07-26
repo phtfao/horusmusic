@@ -111,4 +111,26 @@ class ShapeServiceTest extends TestCase
         $triangule = new Triangule(3, 4, 5);
         $this->assertEquals(30.85, ShapeService::getSumOfPerimeters($circle, $triangule));
     }
+
+    function testCalculatorOfCircle4AndCircle5(): void
+    {
+        $circle1 = new Circle(4);
+        $circle2 = new Circle(5);
+        $expected = [
+            'SumOfArea' => 128.81,
+            'SumOfPerimeter' => 56.55,
+        ];
+        $this->assertEquals($expected, ShapeService::calculator($circle1, $circle2));
+    }
+
+    function testCalculatorOfTriangule3And4And5And6And7And8(): void
+    {
+        $triangule1 = new Triangule(3, 4, 5);
+        $triangule2 = new Triangule(6, 7, 8);
+        $expected = [
+            'SumOfArea' => 26.33,
+            'SumOfPerimeter' => 33,
+        ];
+        $this->assertEquals($expected, ShapeService::calculator($triangule1, $triangule2));
+    }
 }
