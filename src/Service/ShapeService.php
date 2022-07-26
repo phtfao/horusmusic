@@ -35,4 +35,12 @@ class ShapeService
     {
         return $shape1->getPerimeter() + $shape2->getPerimeter();
     }
+
+    public static function calculator(ShapeInterface $shape1, ShapeInterface $shape2)
+    {
+        return [
+            'SumOfArea' => self::getSumOfAreas($shape1, $shape2),
+            'SumOfPerimeter' => self::getSumOfPerimeters($shape1, $shape2),
+        ];
+    }
 }
