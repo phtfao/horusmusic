@@ -5,11 +5,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\ShapeService;
 use App\Model\Circle;
 
 class CircleController extends AbstractController
 {
-    private $circle;
+    private Circle $circle;
+    private ShapeService $shapeService;
 
     /**
      * @Route("/circle/{radius}", name="circle_show", methods={"GET"})
@@ -17,6 +19,7 @@ class CircleController extends AbstractController
     public function show($radius): JsonResponse
     {
         $this->circle = new Circle($radius);
-        return $this->json($this->circle->getInfo());
+        $this->shapeService = new ShapeService($this->circle);
+        return $this->json($this->shapeService->getInfo());
     }
 }

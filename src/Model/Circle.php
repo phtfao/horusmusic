@@ -2,22 +2,19 @@
 
 namespace App\Model;
 
-class Circle
+
+class Circle implements Contracts\ShapeInterface
 {
-    private $radius;
     private $type = 'circle';
 
-    public function __construct($radius)
-    {
-        $this->radius = $radius;
-    }
+    public function __construct(private $radius){}
 
     public function getArea()
     {
         return pi() * pow($this->radius, 2);
     }
 
-    public function getCircumference()
+    public function getPerimeter()
     {
         return 2 * pi() * $this->radius;
     }
@@ -28,7 +25,7 @@ class Circle
             'type' => $this->type,
             'radius' => $this->radius,
             'surface' => $this->getArea(),
-            'circumference' => $this->getCircumference(),
+            'circumference' => $this->getPerimeter(),
         ];
     }
 }

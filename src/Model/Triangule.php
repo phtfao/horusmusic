@@ -2,15 +2,11 @@
 
 namespace App\Model;
 
-class Triangule
+class Triangule implements Contracts\ShapeInterface
 {
-
     private $type = 'triangule';
 
-    public function __construct(private $a, private $b, private $c)
-    {
-
-    }
+    public function __construct(private $a, private $b, private $c){}
 
     public function getArea()
     {
@@ -31,7 +27,7 @@ class Triangule
             'b' => $this->b,
             'c' => $this->c,
             'surface' => $this->getArea(),
-            'perimeter' => $this->getPerimeter(),
+            'circumference' => $this->getPerimeter(),
         ];
     }
 }
